@@ -16,14 +16,13 @@ use Akeneo\UserManagement\Component\Model\User;
 use Eikona\Tessa\ConnectorBundle\Security\AuthGuard;
 use Eikona\Tessa\ConnectorBundle\Tessa;
 use Eikona\Tessa\ConnectorBundle\Utilities\IdPrefixer;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-class MediaFileController extends AbstractController
+class MediaFileController
 {
     const SSO_ACTION_ASSET_DETAIL = 'detail';
     const SSO_ACTION_ASSET_SELECT = 'select';

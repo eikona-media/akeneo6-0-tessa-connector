@@ -7,7 +7,7 @@ services:
     arguments:
       - '@eikona.tessa'
       - '@eikona.tessa.auth_guard'
-      - '@templating'
+      - '@twig'
       - '@pim_pdf_generator.builder.dompdf'
       - '@pimee_workflow.helper.filter_product_values'
       - '@liip_imagine.data.manager'
@@ -16,8 +16,8 @@ services:
       - '@pim_catalog.repository.cached_attribute'
       - '@pim_catalog.repository.channel'
       - '@pim_catalog.repository.locale'
-      - 'AkeneoPimEnrichmentBundle:Product:renderPdf.html.twig'
-      - '@pim_catalog.repository.cached_attribute_option'
+      - '@@AkeneoPimEnrichment/Product/renderPdf.html.twig'
+      - '@security.authorization_checker'
       - '%pim_pdf_generator_font%'
     tags:
       - { name: pim_pdf_generator.renderer, priority: 101 }

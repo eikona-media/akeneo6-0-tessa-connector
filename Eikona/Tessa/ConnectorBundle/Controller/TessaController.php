@@ -9,10 +9,10 @@
 namespace Eikona\Tessa\ConnectorBundle\Controller;
 
 use Eikona\Tessa\ConnectorBundle\Tessa;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class TessaController extends AbstractController
+class TessaController
 {
     /** @var Tessa */
     protected $tessa;
@@ -32,7 +32,7 @@ class TessaController extends AbstractController
         $url = $this->tessa->getUiUrl();
 
         if (!$url) {
-            throw $this->createNotFoundException('Tessa url not found');
+            throw new NotFoundHttpException('Tessa url not found');
         }
 
         return new RedirectResponse($url);

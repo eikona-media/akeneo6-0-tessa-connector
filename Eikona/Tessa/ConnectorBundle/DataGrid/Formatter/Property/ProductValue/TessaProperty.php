@@ -4,7 +4,8 @@ namespace Eikona\Tessa\ConnectorBundle\DataGrid\Formatter\Property\ProductValue;
 
 use Eikona\Tessa\ConnectorBundle\Tessa;
 use Oro\Bundle\PimDataGridBundle\Extension\Formatter\Property\ProductValue\TwigProperty;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
+use Twig\Environment;
 
 /**
  * Field property, able to render majority of product attribute values
@@ -23,7 +24,7 @@ class TessaProperty extends TwigProperty
     protected $tessa;
 
     public function __construct(
-        \Twig_Environment $environment,
+        Environment $environment,
         TranslatorInterface $translator,
         Tessa $tessa
     )

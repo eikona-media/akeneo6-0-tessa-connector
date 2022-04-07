@@ -13,13 +13,13 @@ use Akeneo\Channel\Component\Repository\LocaleRepositoryInterface;
 use Akeneo\Pim\Enrichment\Bundle\PdfGeneration\Builder\PdfBuilderInterface;
 use Akeneo\Pim\WorkOrganization\Workflow\Bundle\Helper\FilterProductValuesHelper;
 use Akeneo\Tool\Component\StorageUtils\Repository\IdentifiableObjectRepositoryInterface;
-use Eikona\Tessa\ConnectorBundle\AttributeType\TessaType;
 use Eikona\Tessa\ConnectorBundle\Security\AuthGuard;
 use Eikona\Tessa\ConnectorBundle\Tessa;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Liip\ImagineBundle\Imagine\Data\DataManager;
 use Liip\ImagineBundle\Imagine\Filter\FilterManager;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Twig\Environment;
 
 class ProductPdfRendererEE extends \Akeneo\Pim\Permission\Bundle\Pdf\ProductPdfRenderer
 {
@@ -28,7 +28,7 @@ class ProductPdfRendererEE extends \Akeneo\Pim\Permission\Bundle\Pdf\ProductPdfR
     public function __construct(
         Tessa $tessa,
         AuthGuard $authGuard,
-        EngineInterface $templating,
+        Environment $templating,
         PdfBuilderInterface $pdfBuilder,
         FilterProductValuesHelper $filterHelper,
         DataManager $dataManager,
@@ -38,7 +38,7 @@ class ProductPdfRendererEE extends \Akeneo\Pim\Permission\Bundle\Pdf\ProductPdfR
         ChannelRepositoryInterface $channelRepository,
         LocaleRepositoryInterface $localeRepository,
         string $template,
-        IdentifiableObjectRepositoryInterface $attributeOptionRepository,
+        AuthorizationCheckerInterface $authorizationChecker,
         ?string $customFont = null
     )
     {
@@ -56,7 +56,7 @@ class ProductPdfRendererEE extends \Akeneo\Pim\Permission\Bundle\Pdf\ProductPdfR
             $channelRepository,
             $localeRepository,
             $template,
-            $attributeOptionRepository,
+            $authorizationChecker,
             $customFont
         );
     }

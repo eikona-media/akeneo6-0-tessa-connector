@@ -19,9 +19,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
+        $treeBuilder = new TreeBuilder('pim_eikona_tessa_connector');
 
-        $root = $treeBuilder->root('pim_eikona_tessa_connector');
+        $root = $treeBuilder->getRootNode();
 
         $children = $root->children();
 

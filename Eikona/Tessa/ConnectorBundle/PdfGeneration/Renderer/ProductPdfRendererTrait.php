@@ -31,16 +31,15 @@ trait ProductPdfRendererTrait
         $this->configureOptions($resolver);
 
         $imagePaths = $this->getImagePaths($object, $context['locale'], $context['scope']);
-        $optionLabels = $this->getOptionLabels($object, $context['locale'], $context['scope']);
         $tessaAssets = $this->resolveTessaAssets($object, $context['locale'], $context['scope']);
+
         $params = array_merge(
             $context,
             [
-                'product'           => $object,
+                'product' => $object,
                 'groupedAttributes' => $this->getGroupedAttributes($object),
-                'imagePaths'        => $imagePaths,
-                'customFont'        => $this->customFont,
-                'optionLabels'      => $optionLabels,
+                'imagePaths' => $imagePaths,
+                'customFont' => $this->customFont,
             ]
         );
 
