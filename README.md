@@ -32,7 +32,7 @@ In some cases Apache is configured wrong, see https://api.akeneo.com/documentati
 
 1) Install the bundle with composer
 ```bash
-composer require eikona-media/akeneo5-0-tessa-connector
+composer require eikona-media/akeneo6-0-tessa-connector
 ```
 
 2) Then add the following lines **at the end** of your config/routes/routes.yml :
