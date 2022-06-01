@@ -15,3 +15,9 @@ services:
     public: true
     arguments:
       - '@doctrine.orm.entity_manager'
+  
+  eikona.tessa.controller.tessa:
+    class: Eikona\Tessa\ConnectorBundle\Controller\TessaController
+    public: true
+    arguments:
+      - '@eikona.tessa'
