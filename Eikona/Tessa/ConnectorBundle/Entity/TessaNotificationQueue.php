@@ -9,9 +9,13 @@
 namespace Eikona\Tessa\ConnectorBundle\Entity;
 
 use DateTime;
+use Ramsey\Uuid\Uuid;
 
 class TessaNotificationQueue
 {
+    /** @var string */
+    protected $uuid;
+
     /** @var string */
     protected $type;
 
@@ -24,8 +28,10 @@ class TessaNotificationQueue
     /** @var DateTime */
     protected $created;
 
-    /** @var DateTime */
-    protected $updated;
+    public function __construct()
+    {
+        $this->uuid = Uuid::uuid4();
+    }
 
     /**
      * @return string
