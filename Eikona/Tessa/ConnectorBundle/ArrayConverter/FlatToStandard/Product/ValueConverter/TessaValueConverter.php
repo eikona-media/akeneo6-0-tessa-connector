@@ -48,7 +48,7 @@ class TessaValueConverter extends AbstractValueConverter
         if ($value === '' || trim((string)$value) === '') {
             $data = null;
         } else {
-            $data = $this->convertUrlsToAssetIds(
+            $data = $this->convertUrlsOrAssetIdsToAssetIds(
                 trim((string)$value)
             );
         }
@@ -65,11 +65,17 @@ class TessaValueConverter extends AbstractValueConverter
      *
      * @return string
      */
-    private function convertUrlsToAssetIds($data): string
+    private function convertUrlsOrAssetIdsToAssetIds($data): string
     {
         $assetUrls = explode(';', $data);
         $assetIds = array_map(function ($assetUrl) {
-            return  $this->linkParser->getAssetIdFromTessaUrl($assetUrl);
+            // Check if it's already an asset id -> proceed without converting
+            if (preg_match('/^\d+$/', $assetUrl)) {
+                return $assetUrl;
+            }
+
+            // Parse from url
+            return $this->linkParser->getAssetIdFromTessaUrl($assetUrl);
         }, $assetUrls);
 
         return implode(',', $assetIds);

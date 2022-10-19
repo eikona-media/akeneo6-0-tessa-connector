@@ -2,6 +2,7 @@
 
 ## Unreleased
 * Fixed rare bug when updating an entry in the queue which was already processed in the meantime
+* Fixed bug, which removed asset attribute values when reverting to an older version of an product
 
 __Upgrade guide__
 1) Empty the tessa notification queue (`eikona_media_tessa_notification_queue`) or clearing the database table `eikona_media_tessa_notification_queue`
