@@ -4,14 +4,18 @@ Eikona\Tessa\ConnectorBundle\Entity\TessaNotificationQueue:
   changeTrackingPolicy: DEFERRED_EXPLICIT
   repositoryClass: Eikona\Tessa\ConnectorBundle\ConfigurationExtension\Doctrine\ORM\Repository\TessaNotificationRepository
   id:
+    uuid:
+      type: string
+      length: 36
+      unique: true
+
+  fields:
     type:
       type: string
       length: 100
-
     code:
       type: string
       length: 100
-  fields:
     action:
       type: string
       length: 100
@@ -22,9 +26,3 @@ Eikona\Tessa\ConnectorBundle\Entity\TessaNotificationQueue:
       gedmo:
         timestampable:
           on: create
-
-    updated:
-      type: datetime
-      gedmo:
-        timestampable:
-          on: update

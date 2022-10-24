@@ -12,11 +12,10 @@ use Akeneo\Pim\Enrichment\Component\Product\Model\ProductInterface;
 use Akeneo\Pim\Enrichment\Component\Product\Model\ProductModelInterface;
 use Akeneo\Pim\Enrichment\Component\Product\Repository\ProductModelRepositoryInterface;
 use Akeneo\Pim\Enrichment\Component\Product\Repository\ProductRepositoryInterface;
-use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectRepository;
 use Eikona\Tessa\ConnectorBundle\Entity\TessaNotificationQueue;
 use Eikona\Tessa\ConnectorBundle\Tessa;
-use Symfony\Component\Console\Style\SymfonyStyle;
 
 class TessaNotificationQueueService
 {
@@ -57,10 +56,6 @@ class TessaNotificationQueueService
      */
     public function addToQueue(string $code, string $type, string $action)
     {
-        if ($this->repo->findOneBy(['code' => $code, 'type' => $type]) !== null) {
-            return;
-        }
-
         // $action wird hier nur gesetzt, aber noch nicht ausgewertet
         $item = new TessaNotificationQueue();
         $item->setCode($code);
