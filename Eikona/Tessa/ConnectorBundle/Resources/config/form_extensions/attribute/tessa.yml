@@ -82,7 +82,7 @@ extensions:
       label: tessa.attribute.max_assets.label
 
   pim-attribute-form-tessa-validation-params-allowed-extensions:
-    module: eikona/tessa/form/common/fields/select
+    module: eikona/tessa/form/common/fields/select-tags
     parent: pim-attribute-form-tessa-validation-params
     targetZone: content
     position: 110

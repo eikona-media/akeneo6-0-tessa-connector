@@ -10,14 +10,14 @@ define([
   'underscore',
   'pim/form/common/fields/field',
   'oro/translator',
-  'eikona/tessa/form/common/fields/select/template',
+  'eikona/tessa/form/common/fields/select-tags/template',
 ], function ($, _, BaseField, __, template) {
   return BaseField.extend({
     events: {
       'change input': function (event) {
         this.errors = [];
         this.updateModel(this.getFieldValue(event.target));
-        this.getRoot().render();
+        // this.getRoot().render();
       },
     },
     template: _.template(template),
@@ -42,7 +42,7 @@ define([
      */
     postRender: function () {
       console.log('render');
-      this.$('input.select22').select2({
+      this.$('input.tessa-select2-tags').select2({
         tags: this.config.choices,
         tokenSeparators: [",", " "],
       });
