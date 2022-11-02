@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1 (2022-11-02)
+* Added the ability to add custom extensions in the attribute settings "Allowed extensions"
+
 ## 1.0.2 (2022-10-24)
 * Fixed rare bug when updating an entry in the queue which was already processed in the meantime
 * Fixed bug, which removed asset attribute values when reverting to an older version of a product

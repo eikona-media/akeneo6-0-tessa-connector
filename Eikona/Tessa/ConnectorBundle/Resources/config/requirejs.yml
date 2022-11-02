@@ -23,6 +23,9 @@ config:
 
         pim/product-edit-form/main-image:   eikonatessaconnector/js/product/form/main-image.ts
 
+        eikona/tessa/form/common/fields/select-tags:                 eikonatessaconnector/js/form/common/fields/select-tags.js
+        eikona/tessa/form/common/fields/select-tags/template:        eikonatessaconnector/templates/form/common/fields/select-tags.html
+
     config:
         pim/attribute-edit-form/type-specific-form-registry:
             formNames:
