@@ -114,6 +114,28 @@
 <div class="AknFieldContainer">
     <div class="AknFieldContainer-header">
         <label class="AknFieldContainer-label control-label AknFieldContainer-label required"
+               for="pim_eikona_tessa_connector___sync_active">
+            <%- _.__('tessa.configuration.syncactive.label') %>
+        </label>
+    </div>
+    <div class="AknFieldContainer-inputContainer">
+        <div class="switch switch-small" data-on-label="Yes" data-off-label="No">
+            <input
+                id="pim_eikona_tessa_connector___sync_active"
+                type="checkbox"
+                name="pim_eikona_tessa_connector___sync_active"
+                class="tessa-config"
+            <% if (syncactive) { %> checked<% } %>
+            >
+        </div>
+    </div>
+    <div class="AknFieldContainer-footer">
+        <%- _.__('tessa.configuration.syncactive.description') %>
+    </div>
+</div>
+<div class="AknFieldContainer">
+    <div class="AknFieldContainer-header">
+        <label class="AknFieldContainer-label control-label AknFieldContainer-label required"
                for="pim_eikona_tessa_connector___sync_in_background">
             <%- _.__('tessa.configuration.syncinbackground.label') %>
         </label>

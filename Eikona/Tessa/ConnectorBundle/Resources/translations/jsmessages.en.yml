@@ -31,9 +31,12 @@ tessa:
     systemidentifier:
       label: TESSA System Identifier
       description: TESSA system identifier
+    syncactive:
+      label: Activate synchronisation
+      description: Syncronize informations with TESSA
     syncinbackground:
       label: Sync in background
-      description: Sync informations with TESSA in chunks in background
+      description: Syncronize informations with TESSA in chunks in background
     userusedbytessa:
       label: User name for Akeneo-API
       description: Akeneo user, which is used by TESSA for access to the Akeneo-API

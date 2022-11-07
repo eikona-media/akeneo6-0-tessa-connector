@@ -50,6 +50,8 @@ define(
             this.getFormData().pim_eikona_tessa_connector___api_key.value : '',
           systemidentifier: this.getFormData().pim_eikona_tessa_connector___system_identifier ?
             this.getFormData().pim_eikona_tessa_connector___system_identifier.value : '',
+          syncactive: this.getFormData().pim_eikona_tessa_connector___sync_active ?
+            this.getFormData().pim_eikona_tessa_connector___sync_active.value : false,
           syncinbackground: this.getFormData().pim_eikona_tessa_connector___sync_in_background ?
             this.getFormData().pim_eikona_tessa_connector___sync_in_background.value : false,
           userUsedByTessa: this.getFormData().pim_eikona_tessa_connector___user_used_by_tessa ?

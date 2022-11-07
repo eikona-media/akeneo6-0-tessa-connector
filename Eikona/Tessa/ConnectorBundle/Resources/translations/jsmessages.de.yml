@@ -31,6 +31,9 @@ tessa:
     systemidentifier:
       label: TESSA System Kennung
       description: TESSA System Kennung
+    syncactive:
+      label: Synchronisation aktivieren
+      description: Informationen mit TESSA synchronisieren
     syncinbackground:
       label: Im Hintergrund synchronisieren
       description: Informationen mit TESSA im Hintergrund blockweise synchronisieren
