@@ -25,6 +25,8 @@ class TessaNotificationQueueService
     const ACTION_MODIFIED = 'modified';
     const ACTION_REMOVED = 'removed';
 
+    protected const CHUNK_SIZE = 100;
+
     /** @var EntityManagerInterface */
     protected $em;
 
@@ -71,36 +73,44 @@ class TessaNotificationQueueService
      */
     public function syncQueue()
     {
-        /** @var TessaNotificationQueue[] $items */
-        $items = $this->repo->findAll();
-
         /** @var ProductRepositoryInterface $productRepo */
         $productRepo = $this->em->getRepository(ProductInterface::class);
 
         /** @var ProductModelRepositoryInterface $productModelRepo */
         $productModelRepo = $this->em->getRepository(ProductModelInterface::class);
 
-        $entities = [];
+        while (!empty($items = $this->getNextChunk())) {
+            $entities = [];
 
-        foreach ($items as $item) {
-            if ($item->getType() == self::TYPE_PRODUCT) {
-                $product = $productRepo->findOneByIdentifier($item->getCode());
-                if ($product !== null) {
-                    $entities[] = $product;
+            foreach ($items as $item) {
+                if ($item->getType() === self::TYPE_PRODUCT) {
+                    $product = $productRepo->findOneByIdentifier($item->getCode());
+                    if ($product !== null) {
+                        $entities[] = $product;
+                    }
+                    $this->em->remove($item);
                 }
-                $this->em->remove($item);
-            }
-            if ($item->getType() == self::TYPE_PRODUCT_MODEL) {
-                $productModel = $productModelRepo->findOneByIdentifier($item->getCode());
-                if ($productModel !== null) {
-                    $entities[] = $productModel;
+                if ($item->getType() === self::TYPE_PRODUCT_MODEL) {
+                    $productModel = $productModelRepo->findOneByIdentifier($item->getCode());
+                    if ($productModel !== null) {
+                        $entities[] = $productModel;
+                    }
+                    $this->em->remove($item);
                 }
-                $this->em->remove($item);
             }
+
+            $this->tessa->notifyBulkModification($entities);
+
+            $this->em->flush();
+            $this->em->clear();
         }
+    }
 
-        $this->tessa->notifyBulkModification($entities);
-
-        $this->em->flush();
+    /**
+     * @return TessaNotificationQueue[]
+     */
+    protected function getNextChunk(): array
+    {
+        return $this->repo->findBy([], [], self::CHUNK_SIZE, 0);
     }
 }
