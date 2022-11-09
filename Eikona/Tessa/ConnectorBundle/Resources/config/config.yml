@@ -18,6 +18,9 @@ pim_eikona_tessa_connector:
         system_identifier:
             value: ~
             scope: app
+        sync_active:
+            value: false
+            scope: app
         sync_in_background:
             value: false
             scope: app

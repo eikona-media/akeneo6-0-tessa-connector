@@ -59,6 +59,9 @@ class Tessa
     protected $userId;
 
     /** @var bool */
+    protected $syncActive;
+
+    /** @var bool */
     protected $syncInBackground;
 
     /** @var int */
@@ -96,6 +99,7 @@ class Tessa
             $this->accessToken = trim($oroGlobal->get('pim_eikona_tessa_connector.api_key'));
             $this->userId = (int)substr($this->accessToken, 0, strpos($this->accessToken, ':'));
             $this->systemIdentifier = trim($oroGlobal->get('pim_eikona_tessa_connector.system_identifier'));
+            $this->syncActive = (bool)$oroGlobal->get('pim_eikona_tessa_connector.sync_active');
             $this->syncInBackground = (bool)$oroGlobal->get('pim_eikona_tessa_connector.sync_in_background');
             $this->chunkSize = (int)$oroGlobal->get('pim_eikona_tessa_connector.chunk_size');
             $this->userUsedByTessa = trim($oroGlobal->get('pim_eikona_tessa_connector.user_used_by_tessa'));
@@ -109,6 +113,7 @@ class Tessa
             $this->accessToken = '';
             $this->userId = 0;
             $this->systemIdentifier = '';
+            $this->syncActive = false;
             $this->syncInBackground = false;
             $this->chunkSize = 100;
             $this->userUsedByTessa = '';
@@ -173,6 +178,14 @@ class Tessa
     public function getSystemIdentifier()
     {
         return $this->systemIdentifier;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSyncActive()
+    {
+        return $this->syncActive;
     }
 
     /**

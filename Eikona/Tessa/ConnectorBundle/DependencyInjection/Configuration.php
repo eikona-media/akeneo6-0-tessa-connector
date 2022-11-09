@@ -69,6 +69,13 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('scope')->end()
             ->end()
             ->end()
+            # sync_active
+            ->arrayNode('sync_active')
+            ->children()
+            ->booleanNode('value')->end()
+            ->scalarNode('scope')->end()
+            ->end()
+            ->end()
             # sync_in_background
             ->arrayNode('sync_in_background')
             ->children()

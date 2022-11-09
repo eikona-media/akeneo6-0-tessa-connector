@@ -265,6 +265,10 @@ class TessaNotificationListener
      */
     protected function shouldNotify(): bool
     {
+        if (!$this->tessa->isSyncActive()) {
+            return false;
+        }
+
         if ($this->requestStack->getCurrentRequest() === null) {
             return true;
         }

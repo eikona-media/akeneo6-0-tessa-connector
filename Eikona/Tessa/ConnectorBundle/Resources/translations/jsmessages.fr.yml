@@ -30,6 +30,9 @@ tessa:
     systemidentifier:
       label: Identifiant du système TESSA
       description: identifiant système TESSA
+    syncactive:
+      label: Activer la synchronisation
+      description: Synchroniser les informations avec TESSA
     syncinbackground:
       label: Synchronisation en arrière-plan
       description: Synchroniser l'information avec TESSA dans l'arrière-plan bloc par bloc
