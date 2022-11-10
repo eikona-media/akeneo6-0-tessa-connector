@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Add english as fallback language
+
 ## 1.2.0 (2022-11-09)
 * Fixed Tessa background synchronization for large queues
 * Added a setting to activate/deactivate the active synchronization with Tessa
