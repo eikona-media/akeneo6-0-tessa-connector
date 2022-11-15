@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 (2022-11-15)
+* Added english as fallback language
+* Added the option to create reference entities with a Tessa asset as default image
+* Added the version of the connector in the settings
+
 ## 1.2.0 (2022-11-09)
 * Fixed Tessa background synchronization for large queues
 * Added a setting to activate/deactivate the active synchronization with Tessa
