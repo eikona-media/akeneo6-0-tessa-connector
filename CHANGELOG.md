@@ -1,7 +1,8 @@
 # Changelog
 
 ## Unreleased
-* Add english as fallback language
+* Added english as fallback language
+* Added the option to create reference entities with a Tessa asset as default image
 
 ## 1.2.0 (2022-11-09)
 * Fixed Tessa background synchronization for large queues

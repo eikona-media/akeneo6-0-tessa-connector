@@ -104,6 +104,13 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('scope')->end()
             ->end()
             ->end()
+            # enable_reference_entity_tessa_main_image
+            ->arrayNode('enable_reference_entity_tessa_main_image')
+            ->children()
+            ->booleanNode('value')->end()
+            ->scalarNode('scope')->end()
+            ->end()
+            ->end()
             ->end()
             ->end();
 

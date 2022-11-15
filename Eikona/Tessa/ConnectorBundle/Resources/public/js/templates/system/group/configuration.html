@@ -1,9 +1,13 @@
-﻿﻿<h3>
-    <img style="height: 80px; margin-bottom: 1em;" src="/bundles/eikonatessaconnector/images/tessa_logo_02.png"/>
-    <p>
-        <a href="http://tessa-dam.de/" target="_blank"><%- _.__('tessa.configuration.link.label')%></a>
-    </p>
-</h3>
+﻿<div class="AknDescriptionHeader">
+    <div class="AknDescriptionHeader-icon" style="background-image: url(/bundles/eikonatessaconnector/images/logo_tessa.svg); background-size: 100px; min-width: 150px;"></div>
+    <div class="AknDescriptionHeader-title">
+        <%- _.__('tessa.configuration.link.label')%>
+        <div class="AknDescriptionHeader-description">
+            <p><%- _.__('tessa.configuration.version')%> 1.2.0</p>
+        </div>
+    </div>
+</div>
+
 <div class="AknFieldContainer">
     <div class="AknFieldContainer-header">
         <label class="AknFieldContainer-label control-label AknFieldContainer-label required"
@@ -192,5 +196,27 @@
     </div>
     <div class="AknFieldContainer-footer">
         <%- _.__('tessa.configuration.disableasseteditinginakeneoui.description') %>
+    </div>
+</div>
+<div class="AknFieldContainer">
+    <div class="AknFieldContainer-header">
+        <label class="AknFieldContainer-label control-label AknFieldContainer-label required"
+               for="pim_eikona_tessa_connector___enable_reference_entity_tessa_main_image">
+            <%- _.__('tessa.configuration.enablereferenceentitytessamainimage.label') %>
+        </label>
+    </div>
+    <div class="AknFieldContainer-inputContainer">
+        <div class="switch switch-small" data-on-label="Yes" data-off-label="No">
+            <input
+                id="pim_eikona_tessa_connector___enable_reference_entity_tessa_main_image"
+                type="checkbox"
+                name="pim_eikona_tessa_connector___enable_reference_entity_tessa_main_image"
+                class="tessa-config"
+            <% if (enableReferenceEntityTessaMainImage) { %> checked<% } %>
+            >
+        </div>
+    </div>
+    <div class="AknFieldContainer-footer">
+        <%- _.__('tessa.configuration.enablereferenceentitytessamainimage.description') %>
     </div>
 </div>

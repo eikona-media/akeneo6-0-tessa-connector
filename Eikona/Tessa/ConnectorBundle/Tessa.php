@@ -73,6 +73,9 @@ class Tessa
     /** @var bool */
     protected $isAssetEditingInAkeneoUiDisabled;
 
+    /** @var bool */
+    protected $isReferenceEntityTessaMainImageEnabled;
+
     /** @var NotificationNormalizer */
     protected $notificationNormalizer;
 
@@ -104,8 +107,9 @@ class Tessa
             $this->chunkSize = (int)$oroGlobal->get('pim_eikona_tessa_connector.chunk_size');
             $this->userUsedByTessa = trim($oroGlobal->get('pim_eikona_tessa_connector.user_used_by_tessa'));
             $this->isAssetEditingInAkeneoUiDisabled = (bool)$oroGlobal->get('pim_eikona_tessa_connector.disable_asset_editing_in_akeneo_ui');
+            $this->isReferenceEntityTessaMainImageEnabled = (bool)$oroGlobal->get('pim_eikona_tessa_connector.enable_reference_entity_tessa_main_image');
         } catch(Exception $e) {
-            // This exception happens when the database is missing (first installion, so nothing to concern about)
+            // This exception happens when the database is missing (first installation, so nothing to concern about)
             $this->baseUrl = '';
             $this->uiUrl = '';
             $this->useHttpInternally = false;
@@ -118,6 +122,7 @@ class Tessa
             $this->chunkSize = 100;
             $this->userUsedByTessa = '';
             $this->isAssetEditingInAkeneoUiDisabled = false;
+            $this->isReferenceEntityTessaMainImageEnabled = false;
         }
         $this->kernel = $kernel;
         $this->logger = $logger;
@@ -223,6 +228,14 @@ class Tessa
     /**
      * @return bool
      */
+    public function isReferenceEntityTessaMainImageEnabled(): bool
+    {
+        return $this->isReferenceEntityTessaMainImageEnabled;
+    }
+
+    /**
+     * @return bool
+     */
     public function isAvailable(): bool
     {
         $baseUrl = $this->getUrlForInternalCommunication();
@@ -319,6 +332,30 @@ class Tessa
         }
 
         curl_close($ch);
+    }
+
+    public function getAsset(string $assetId)
+    {
+        $curl = curl_init();
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $this->baseUrl . '/api/media/asset/' . $assetId,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => [
+                'X-Auth-Token: ' . $this->accessToken,
+                'Content-Type: application/x-www-form-urlencoded',
+            ],
+        ]);
+        $response = curl_exec($curl);
+        $responseFormatted = json_decode($response);
+        curl_close($curl);
+
+        return $responseFormatted;
     }
 
     /**

@@ -43,10 +43,14 @@ tessa:
     disableasseteditinginakeneoui:
       label: Disable asset editing in Akeneo UI
       description: Disables the editing of assets in the Akeneo UI. Assets can only be edited via the asset dialog.
+    enablereferenceentitytessamainimage:
+      label: Enable Tessa assets as mainimage for reference entities
+      description: Enables the creation of a Tessa asset attribute for new reference entities (Enterprise Edition) instead of an Akeneo asset attribute.
     tab:
       label: TESSA
     link:
       label: EIKONA Akeneo TESSA Connector
+    version: Version
   attribute:
       max_assets:
           label: Max assets

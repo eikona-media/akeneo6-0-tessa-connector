@@ -42,9 +42,13 @@ tessa:
     disableasseteditinginakeneoui:
       label: Désactiver l'édition des actifs dans l'interface utilisateur d'Akeneo
       description: Désactive l'édition des actifs dans l'interface utilisateur Akeneo. Les actifs ne peuvent être édités que via la boîte de dialogue des actifs.
+    enablereferenceentitytessamainimage:
+      label: Activer les actifs Tessa comme image principale pour les entités de référence
+      description: Permet la création d'un attribut d'actif Tessa pour les nouvelles entités de référence (Enterprise Edition) au lieu d'un attribut d'actif Akeneo.
     tab:
       label: TESSA
     link:
       label: Connecteur EIKONA Akeneo TESSA
+    version: Version
     action:
       gallery: TESSA galerie
