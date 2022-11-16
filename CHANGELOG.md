@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Fixed completeness for Tessa asset attributes
+
 ## 1.3.0 (2022-11-15)
 * Added english as fallback language
 * Added the option to create reference entities with a Tessa asset as default image
