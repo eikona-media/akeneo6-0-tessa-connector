@@ -171,6 +171,8 @@ class RecordItemHydrator implements RecordItemHydratorInterface
     private function isTessaImageData($data): bool {
         return is_array($data)
             && count($data) > 0
-            && preg_match('/^[0-9,]+$/', current($data));
+            && array_key_exists(0, $data)
+            && is_string(array_values($data)[0])
+            && preg_match('/^\d+$/', array_values($data)[0]);
     }
 }
