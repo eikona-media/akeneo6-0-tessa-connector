@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.2 (2022-11-22)
+* Fixed reference entities with akeneo asset as default image
+
 ## 1.3.1 (2022-11-17)
 * Fixed completeness for Tessa asset attributes
 
