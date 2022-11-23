@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.3 (2022-11-23)
+* Fixed bugs in reference entities from patch 1.3.2
+
 ## 1.3.2 (2022-11-22)
 * Fixed reference entities with akeneo asset as default image
 

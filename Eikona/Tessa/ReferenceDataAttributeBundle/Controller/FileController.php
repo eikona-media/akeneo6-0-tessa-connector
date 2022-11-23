@@ -17,7 +17,7 @@ class FileController
     protected MediaFileController $tessaMediaFileController;
 
     public function __construct(
-        \Akeneo\Pim\Enrichment\Bundle\Controller\Ui\FileController $inner,
+        $inner,
         MediaFileController $tessaMediaFileController,
     ) {
         $this->inner = $inner;
@@ -41,5 +41,20 @@ class FileController
         }
 
         return $this->inner->showAction($request, $filename, $filter);
+    }
+
+    public function cacheAction(Request $request, $path, $filter)
+    {
+        return $this->inner->cacheAction($request, $path, $filter);
+    }
+
+    public function downloadAction($filename)
+    {
+        return $this->inner->downloadAction($filename);
+    }
+
+    public function defaultThumbnailAction($mimeType)
+    {
+        return $this->inner->defaultThumbnailAction($mimeType);
     }
 }
