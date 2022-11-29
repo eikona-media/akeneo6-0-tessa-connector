@@ -15,7 +15,7 @@ use Eikona\Tessa\ConnectorBundle\Tessa;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Liip\ImagineBundle\Imagine\Data\DataManager;
 use Liip\ImagineBundle\Imagine\Filter\FilterManager;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Twig\Environment;
 
 class ProductPdfRenderer extends \Akeneo\Pim\Enrichment\Bundle\PdfGeneration\Renderer\ProductPdfRenderer
 {
@@ -24,14 +24,13 @@ class ProductPdfRenderer extends \Akeneo\Pim\Enrichment\Bundle\PdfGeneration\Ren
     public function __construct(
         Tessa $tessa,
         AuthGuard $authGuard,
-        EngineInterface $templating,
+        Environment $templating,
         PdfBuilderInterface $pdfBuilder,
         DataManager $dataManager,
         CacheManager $cacheManager,
         FilterManager $filterManager,
         IdentifiableObjectRepositoryInterface $attributeRepository,
         string $template,
-        IdentifiableObjectRepositoryInterface $attributeOptionRepository,
         ?string $customFont = null
     )
     {
@@ -46,7 +45,6 @@ class ProductPdfRenderer extends \Akeneo\Pim\Enrichment\Bundle\PdfGeneration\Ren
             $filterManager,
             $attributeRepository,
             $template,
-            $attributeOptionRepository,
             $customFont
         );
     }
