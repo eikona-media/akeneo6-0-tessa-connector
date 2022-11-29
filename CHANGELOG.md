@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.4 (2022-11-29)
+* Fixed dependencies for Community Edition which prevented the installation
+
 ## 1.3.3 (2022-11-23)
 * Fixed bugs in reference entities from patch 1.3.2
 
