@@ -11,11 +11,6 @@ config:
         pim/media-url-generator-base:                               pimui/js/generator/media-url-generator
         eikona/tessa/fetcher/attribute:                             eikonatessaconnector/js/fetcher/attribute-fetcher
 
-        eikona/tessa/connector/product-edit-form/gallery-link:                  eikonatessaconnector/js/product/form/gallery-link
-        eikona/tessa/connector/template/product-edit-form/gallery-link:         eikonatessaconnector/templates/product/form/gallery-link.html
-        eikona/tessa/connector/product-model-edit-form/gallery-link:            eikonatessaconnector/js/product-model/form/gallery-link
-        eikona/tessa/connector/template/product-model-edit-form/gallery-link:   eikonatessaconnector/templates/product-model/form/gallery-link.html
-
         # Wenn man eigene Attribute im Datagrid rendern möchte, müssen diese als "oro/datagrid/<attribute>-cell" registriert werden
         # Der Name kommt aus der Datagrid Attribut-Typ Definition (siehe config/datagrid/attribute_types.yml) und wird dort ohne "-cell" angegeben
         oro/datagrid/eikona-catalog-tessa-cell:                     eikonatessaconnector/js/datagrid/cell/eikona-catalog-tessa-cell

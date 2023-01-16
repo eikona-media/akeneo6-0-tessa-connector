@@ -61,5 +61,3 @@ tessa:
   datagrid:
     cell:
       assets: "{{ count }} asset|{{ count }} assets"
-  action:
-    gallery: TESSA gallery

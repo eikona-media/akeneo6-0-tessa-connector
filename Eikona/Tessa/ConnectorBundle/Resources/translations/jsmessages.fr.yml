@@ -50,5 +50,3 @@ tessa:
     link:
       label: Connecteur EIKONA Akeneo TESSA
     version: Version
-    action:
-      gallery: TESSA galerie

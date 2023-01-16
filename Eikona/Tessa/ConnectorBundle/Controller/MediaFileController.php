@@ -16,17 +16,17 @@ use Akeneo\UserManagement\Component\Model\User;
 use Eikona\Tessa\ConnectorBundle\Security\AuthGuard;
 use Eikona\Tessa\ConnectorBundle\Tessa;
 use Eikona\Tessa\ConnectorBundle\Utilities\IdPrefixer;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-class MediaFileController
+class MediaFileController extends AbstractController
 {
     const SSO_ACTION_ASSET_DETAIL = 'detail';
     const SSO_ACTION_ASSET_SELECT = 'select';
-    const SSO_ACTION_PRODUCT_GALLERY = 'gallery';
 
     /** @var Tessa */
     protected $tessa;
@@ -98,72 +98,6 @@ class MediaFileController
         return $this->gotoTessaWithAuthentication(
             self::SSO_ACTION_ASSET_SELECT,
             $dataDecoded
-        );
-    }
-
-    /**
-     * @param Request $request
-     * @param $id
-     * @return Response
-     */
-    public function productGalleryAction(Request $request, $id)
-    {
-        /** @var ProductInterface|null $entity */
-        $entity = $this->productRepository->find($id);
-
-        if ($entity === null) {
-            throw new NotFoundHttpException(
-                sprintf('Product with id %s could not be found.', $id)
-            );
-        }
-
-        $prefixedId = $this->idPrefixer->getPrefixedId($entity);
-
-        $locale = $request->get('dataLocale', null);
-        $scope = $request->get('dataScope', null);
-
-        return $this->gotoTessaWithAuthentication(
-            self::SSO_ACTION_PRODUCT_GALLERY,
-            [
-                'ProductId' => $prefixedId,
-                'ProductCode' => $entity->getIdentifier(),
-                'ProductLabel' => $entity->getLabel($locale, $scope),
-                'locale' => $locale,
-                'scope' => $scope,
-            ]
-        );
-    }
-
-    /**
-     * @param Request $request
-     * @param $id
-     * @return Response
-     */
-    public function productmodelGalleryAction(Request $request, $id)
-    {
-        /** @var ProductModelInterface|null $entity */
-        $entity = $this->productModelRepository->find($id);
-
-        if ($entity === null) {
-            throw new NotFoundHttpException(
-                sprintf('Product model with identifier "%s" could not be found.', $id)
-            );
-        }
-
-        $prefixedId = $this->idPrefixer->getPrefixedId($entity);
-
-        $locale = $request->get('dataLocale', null);
-        $scope = $request->get('dataScope', null);
-
-        return $this->gotoTessaWithAuthentication(
-            self::SSO_ACTION_PRODUCT_GALLERY,
-            [
-                'ProductId' => $prefixedId,
-                'ProductCode' => $entity->getCode(),
-                'ProductLabel' => $entity->getLabel($locale, $scope),
-                'locale' => $locale,
-                'scope' => $scope,
-            ]
         );
     }
 
