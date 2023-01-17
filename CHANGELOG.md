@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.4.0 (2023-01-17)
 * Removed Tessa gallery button
 
 ## 1.3.4 (2022-11-29)
