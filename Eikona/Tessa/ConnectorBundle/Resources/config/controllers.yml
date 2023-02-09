@@ -9,6 +9,8 @@ services:
       - '@pim_catalog.repository.product_model'
       - '@eikona.utilities.id_prefixer'
       - '@security.token_storage'
+    calls:
+      - ['setContainer', ['@service_container' ]]
 
   eikona.tessa.controller.api:
     class: Eikona\Tessa\ConnectorBundle\Controller\ApiController

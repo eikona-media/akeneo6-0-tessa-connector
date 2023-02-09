@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.1 (2023-02-09)
+* Fixed Tessa asset controller
+
 ## 1.4.0 (2023-01-17)
 * Removed Tessa gallery button
 
