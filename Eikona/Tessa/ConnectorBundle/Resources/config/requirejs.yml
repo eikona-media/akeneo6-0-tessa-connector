@@ -27,4 +27,8 @@ config:
                 eikona_catalog_tessa:
                     create: pim-attribute-form-tessa
                     edit:   pim-attribute-form-tessa
+        akeneopimworkflow/js/datagrid/cell/proposal-cell:
+            proposal_diffs:
+                eikona_catalog_tessa: '@eikonatessaconnector/js/datagrid/cell/ProposalDiff/ProposalDiffTessa'
+
 
