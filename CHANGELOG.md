@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.2 (2023-05-26)
+* [fix] Fixed enterprise edition detection
+* [fix] Fixed visualization of tessa attributes in proposals
+
 ## 1.4.1 (2023-02-09)
 * Fixed Tessa asset controller
 

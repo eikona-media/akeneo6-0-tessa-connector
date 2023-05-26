@@ -52,6 +52,7 @@ class MainImage extends BasePefMainImage {
         if (MainImage.isTessaAsset(imageData)) {
           const assetId = imageData.split(',')[0];
           this.el.src = Routing.generate('eikona_tessa_media_preview', {assetId});
+          return;
         }
 
         // type = asset_collection
@@ -63,6 +64,7 @@ class MainImage extends BasePefMainImage {
               const assetCode = imageData[0];
               this.fetchAssetWithCache(assetFamilyIdentifier, assetCode).then((result: AssetResult) => {
                 this.el.src = getMediaPreviewUrl(
+                  Routing,
                   getEditionAssetMainMediaThumbnail(
                     result.asset,
                     UserContext.get('catalogScope'),
